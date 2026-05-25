@@ -1,3 +1,4 @@
+let see_tomorrow = ""
 const citiesInPakistan = [
   { name: "Islamabad", latitude: 33.6844, longitude: 73.0479 },
   { name: "Karachi", latitude: 24.8607, longitude: 67.0011 },
