@@ -19,22 +19,30 @@ const citiesInPakistan = [
   { name: "Swat", latitude: 35.2221, longitude: 72.697 },
   { name: "Mirpur", latitude: 33.0587, longitude: 73.7177 },
 ];
-const displayWeather = document.querySelector("#weatherApi")
+const displayWeather = document.querySelector("#weatherApi");
 async function weatherInfo(name, latitude, longitude) {
-  let response = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`,
-  );
-  let data = await response.json();
-  console.log(data);
-  console.log(data.current_weather.temperature);
-  html = `
-        <h1>Temperature: ${data.current_weather.temperature}</h1>
-          <h2>Windspeed: ${data.current_weather.windspeed}km/h</h2> 
-          <h3>${data.current_weather.is_day? "Daytime": "Nightime"}</h3>   
-        </div>`
-    displayWeather.innerHTML = html
+  try {
+    const response = await fetch(
+      `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+    );
+
+    const data = await response.json();
+
+    console.log(data);
+
+    let html = `
+      <h1>${name}</h1>
+      <h2>Temperature: ${data.current_weather.temperature}°C</h2>
+      <h3>Wind Speed: ${data.current_weather.windspeed} km/h</h3>
+    `;
+
+    displayWeather.innerHTML = html;
+
+  } catch (error) {
+    console.log("Fetch Error:", error);
+  }
 }
-const dropDown = document.querySelector("#select ");
+const dropDown = document.querySelector("#select");
 html = "";
 citiesInPakistan.forEach((cities) => {
   html += ` <option value="${cities.name}">${cities.name}</option>`;
