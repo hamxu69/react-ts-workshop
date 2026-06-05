@@ -3,7 +3,7 @@ let emailinput = document.querySelector("#email");
 let phoneinput = document.querySelector("#phone");
 let tablebody = document.querySelector("#tablebody");
 let local = JSON.parse(localStorage.getItem("localArray")) || [];
-
+let random = ''
 function generateRandomNumericID(length) {
   let id = "";
   const digits = "0123456789";
