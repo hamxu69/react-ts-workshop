@@ -2,7 +2,6 @@ let nameinput = document.querySelector("#name");
 let emailinput = document.querySelector("#email");
 let phoneinput = document.querySelector("#phone");
 let tablebody = document.querySelector("#tablebody");
-let random = 'I am a lawyer'
 
 let local = JSON.parse(localStorage.getItem("localArray")) || [];
 function generateRandomNumericID(length) {
