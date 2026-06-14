@@ -14,40 +14,58 @@
 
     <title>Frontend Mentor | Weather app</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       body {
         height: 100vh;
-        align-items: center;
         display: flex;
+        font-family: "DM Sans";
         justify-content: center;
         background-color: hsl(243, 96%, 9%);
       }
-      .main {
-        width: 86%;
+      .logo {
+            height: 60px;
+      }
+      .settings {
+        font-family: sans-serif;
         display: flex;
-        position: relative;
-        background-color: rgba(255, 255, 255, 0.952);
-        height: 50vh;
-        align-items: center;
-        justify-content: center;
+        background: #8080805e;
+        color: white;
+        width: 154px;
+        font-size: larger;
+        height: 60px;
+        border-radius: 11px;
+        justify-content: space-evenly;
+        align-items: stretch;
       }
-      .first {
-        background-color: rgb(153, 125, 125);
-        height: 40vh;
-        width: 60%;
+      .dropdown-svg {
+        width: 18px;
       }
-      .second {
-        background-color: rgb(179, 158, 158);
-        width: 40%;
-        height: 40vh;
+      .unit-svg {
+        width: 25px;
+      }
+      .main {
+        width: 90%;
+      }
+      .nav {
+            height: 190px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
       }
     </style>
   </head>
   <body>
     <div class="main">
-      <div class="first"></div>
-      <div class="second"></div>
+      <div class="nav">
+        <div >
+          <img src="images/logo.svg" class="logo" />
+        </div>
+        <div class="settings">
+          <img src="images/icon-units.svg" class="unit-svg" />
+          <p>Units</p>
+          <img src="images/icon-dropdown.svg" alt="" class="dropdown-svg" />
+        </div>
+      </div>
     </div>
   </body>
 </html>
