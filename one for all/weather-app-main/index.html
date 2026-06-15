@@ -11,19 +11,30 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
     <title>Frontend Mentor | Weather app</title>
 
     <style>
       body {
         height: 100vh;
         display: flex;
-        font-family: "DM Sans";
+        font-family: "DM Sans", sans-serif;
         justify-content: center;
         background-color: hsl(243, 96%, 9%);
       }
       .logo {
-            height: 60px;
+        height: 60px;
       }
       .settings {
         font-family: sans-serif;
@@ -47,22 +58,27 @@
         width: 90%;
       }
       .nav {
-            height: 190px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+        height: 190px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       .heading {
-        
         display: flex;
         justify-content: center;
+      }
+      h1 {
+        font-family: "DM Sans";
+        font-weight: 700;
+        font-size: 68px;
+        color: white;
       }
     </style>
   </head>
   <body>
     <div class="main">
       <div class="nav">
-        <div >
+        <div>
           <img src="images/logo.svg" class="logo" />
         </div>
         <div class="settings">
@@ -72,11 +88,16 @@
         </div>
       </div>
       <div class="heading">
-        <img src="images/Screenshot 2026-06-14 143531.jpg" alt="">
+        <h1>How's the sky looking today?</h1>
       </div>
       <div class="searchbar">
-        <input type="search" name="search" id="search" placeholder="Type name of a city...">
-        <button id="search">Search</button>
+        <input
+          type="search"
+          name="search"
+          class="search"
+          placeholder="Type name of a city..."
+        />
+        <button class="searchBtn">Search</button>
       </div>
     </div>
   </body>
