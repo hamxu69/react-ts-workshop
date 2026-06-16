@@ -41,7 +41,7 @@
         height: 60px;
       }
       .settings {
-        font-family: "DM sans",sans-serif;
+        font-family: "DM sans", sans-serif;
         display: flex;
         background: #8080805e;
         color: white;
@@ -113,7 +113,7 @@
         align-items: center;
       }
       .searchBtn {
-        font-family: "DM sans",sans-serif;
+        font-family: "DM sans", sans-serif;
         font-size: 29px;
         border: none;
         border-radius: 10px;
@@ -131,6 +131,12 @@
         border-radius: 16px 0px 0px 16px;
         justify-content: space-evenly;
         position: absolute;
+      }
+      .cityTemp {
+      }
+      .tempCards {
+      }
+      .tempCard {
       }
     </style>
   </head>
@@ -159,8 +165,16 @@
             placeholder="Type name of a city..."
           />
         </div>
-
         <button class="searchBtn">Search</button>
+      </div>
+      <div class="cityTemp">
+        <div class="displayTemp"></div>
+        <div class="tempCards">
+          <div class="tempCard"></div>
+          <div class="tempCard"></div>
+          <div class="tempCard"></div>
+          <div class="tempCard"></div>
+        </div>
       </div>
     </div>
   </body>
