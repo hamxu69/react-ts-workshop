@@ -10,6 +10,7 @@ const citiesInPakistan = [
   { name: "Multan", latitude: 30.1575, longitude: 71.5249 },
   { name: "Sialkot", latitude: 32.0836, longitude: 74.549 },
   { name: "Hyderabad", latitude: 25.396, longitude: 68.3578 },
+  { name: "Gujranwala", latitude: 32.085, longitude: 74.1883 },
   { name: "Sukkur", latitude: 27.7101, longitude: 68.8597 },
   { name: "Murree", latitude: 33.9072, longitude: 73.4104 },
   { name: "Mardan", latitude: 34.1951, longitude: 72.0593 },
