@@ -18,7 +18,6 @@ const citiesInPakistan = [
   { name: "Bahawalpur", latitude: 29.396, longitude: 71.672 },
   { name: "Chakwal", latitude: 32.0753, longitude: 72.8558 },
   { name: "Swat", latitude: 35.2221, longitude: 72.697 },
-  { name: "Mirpur", latitude: 33.0587, longitude: 73.7177 },
 ];
 const select = document.querySelector("#select");
 let html = "";
