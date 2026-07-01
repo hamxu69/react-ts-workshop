@@ -1,820 +1,190 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Now</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&family=DM+Sans:wght@300;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./assets/images/favicon-32x32.png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <title>Frontend Mentor | Weather app</title>
-
-    <style>
-      /* body {
-        display: flex;
-        font-family: "DM Sans", sans-serif;
-        justify-content: center;
-        background-color: hsl(243, 96%, 9%);
-      }
-      .logo {
-        height: 60px;
-      }
-      .settings {
-        font-family: "DM sans", sans-serif;
-        display: flex;
-        background: #8080805e;
-        color: white;
-        width: 154px;
-        font-size: larger;
-        height: 60px;
-        border-radius: 11px;
-        justify-content: space-evenly;
-        align-items: stretch;
-      }
-      .dropdown-svg {
-        width: 18px;
-      }
-      .unit-svg {
-        width: 25px;
-      }
-      .main {
-        display: flex;
-        width: 90%;
-        gap: 2%;
-        flex-direction: column;
-        align-items: center;
-      }
-      .nav {
-        width: 90%;
-        height: 190px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .heading {
-        display: flex;
-        justify-content: center;
-      }
-      .searchbar {
-        width: 49%;
-        gap: 3%;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        align-items: center;
-      }
-      h1 {
-        font-family: "DM Sans";
-        font-weight: 700;
-        font-size: 83px;
-        color: white;
-      }
-      .search {
-        font-size: 29px;
-        border: none;
-        background-color: hsl(243, 23%, 24%);
-        border-radius: 15px;
-        height: 80px;
-        padding: 20px 20px 20px 90px;
-        width: 122%;
-        display: flex;
-      }
-
-      .search::placeholder {
-        color: hsl(240, 6%, 70%);
-        opacity: 1;
-      }
-      .search:focus {
-        color: hsl(240, 6%, 70%);
-      }
-      .searchinput {
-        width: 100%;
-        display: flex;
-        align-items: center;
-      }
-      .searchBtn {
-        font-family: "DM sans", sans-serif;
-        font-size: 29px;
-        border: none;
-        border-radius: 10px;
-        width: 180px;
-        height: 70px;
-        color: white;
-        background: hsl(233, 67%, 56%);
-      }
-      #fah {
-        color: hsl(240, 6%, 70%);
-        font-size: 37px;
-        align-items: center;
-        width: 100px;
-        display: flex;
-        border-radius: 16px 0px 0px 16px;
-        justify-content: space-evenly;
-        position: absolute;
-      }
-      .mainLayout {
-        padding: 10px;
-        gap: 3%;
-        display: flex;
-        width: 90%;
-        height: 120vh;
-      }
-      .leftLayout {
-        display: flex;
-        background: white;
-        flex: 2;
-        flex-direction: column;
-      }
-      .topLayout {
-        gap: 3%;
-        display: flex;
-        flex: 1.5;
-        background: aqua;
-        flex-direction: column;
-      }
-      .topMain {
-        display: flex;
-        flex: 1;
-        background: rebeccapurple;
-      }
-      .bottomMain {
-        background: blue;
-        gap: 2%;
-        flex: 0.5;
-        display: flex;
-      }
-      .cardTop {
-        flex: 1;
-        background: gray;
-      }
-      .cardBottom {
-        flex: 1;
-    background: #f70;
-      }
-      .bottomLayout {
-        display: flex;
-    gap: 1.5%;
-    flex: 1;
-      }
-      .rightLayout {
-        background: #4a5764;
-        flex: 1;
-      } */
-       /* ==========================================================================
-   1. Custom Properties & Reset
-   ========================================================================== */
-:root {
-  /* Neutral Colors */
-  --neutral-900: hsl(243, 96%, 9%);
-  --neutral-800: hsl(243, 27%, 20%);
-  --neutral-700: hsl(243, 23%, 24%);
-  --neutral-600: hsl(243, 23%, 30%);
-  --neutral-300: hsl(240, 6%, 70%);
-  --neutral-200: hsl(250, 6%, 84%);
-  --neutral-0: hsl(0, 0%, 100%);
-
-  /* Accent Colors */
-  --orange-500: hsl(28, 100%, 52%);
-  --blue-500: hsl(233, 67%, 56%);
-  --blue-700: hsl(248, 70%, 36%);
-
-  /* Typography */
-  --font-body: 'DM Sans', sans-serif;
-  --font-display: 'Bricolage Grotesque', sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  background-color: var(--neutral-900);
-  color: var(--neutral-0);
-  font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.5;
-  padding: 24px;
-  min-height: 100vh;
-}
-
-/* ==========================================================================
-   2. Header Navigation & Dropdowns
-   ========================================================================== */
-.app-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1440px;
-  margin: 0 auto 40px auto;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-}
-
-.logo-icon {
-  color: var(--orange-500);
-  font-size: 1.4rem;
-}
-
-.units-dropdown-container {
-  position: relative;
-}
-
-.btn-units, .btn-day-select {
-  background-color: var(--neutral-800);
-  color: var(--neutral-200);
-  border: 1px solid var(--neutral-600);
-  padding: 8px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-}
-
-/* Unit Dropdown Layout State */
-.units-dropdown-menu {
-  display: none; /* Switch to flex via JS/action classes */
-  position: absolute;
-  right: 0;
-  top: 45px;
-  background-color: var(--neutral-800);
-  border: 1px solid var(--neutral-600);
-  border-radius: 12px;
-  width: 220px;
-  padding: 16px;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 100;
-  box-shadow: 0px 8px 24px rgba(0,0,0,0.5);
-}
-.units-dropdown-menu.active { display: flex; }
-
-.dropdown-section {
-  font-size: 0.9rem;
-  color: var(--neutral-200);
-}
-
-.dropdown-divider {
-  height: 1px;
-  background-color: var(--neutral-600);
-}
-
-.dropdown-group label {
-  font-size: 0.75rem;
-  color: var(--neutral-300);
-  display: block;
-  margin-bottom: 4px;
-}
-
-.dropdown-item {
-  font-size: 0.85rem;
-  padding: 6px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-}
-.dropdown-item.checked {
-  background-color: var(--neutral-700);
-}
-
-/* ==========================================================================
-   3. Search Bar UI
-   ========================================================================== */
-.main-heading {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-align: center;
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 32px;
-}
-
-.search-area {
-  display: flex;
-  gap: 12px;
-  max-width: 540px;
-  margin: 0 auto 48px auto;
-  position: relative;
-}
-
-.search-input-wrapper {
-  flex: 1;
-  position: relative;
-}
-
-.search-icon {
-  position: absolute;
-  left: 14px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--neutral-300);
-}
-
-.search-area input {
-  width: 100%;
-  background-color: var(--neutral-800);
-  border: 1px solid var(--neutral-600);
-  padding: 14px 14px 14px 44px;
-  border-radius: 8px;
-  color: var(--neutral-0);
-  font-family: var(--font-body);
-  font-size: 1rem;
-}
-
-.search-area input:focus {
-  outline: 1px solid var(--blue-500);
-}
-
-.btn-search {
-  background-color: var(--blue-500);
-  color: var(--neutral-0);
-  border: none;
-  padding: 0 24px;
-  border-radius: 8px;
-  font-family: var(--font-body);
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.btn-search:hover { background-color: var(--blue-700); }
-
-/* Autocomplete Search Dropdown State */
-.search-results-dropdown {
-  display: none; /* Switch to block via action classes */
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 56px;
-  background-color: var(--neutral-800);
-  border: 1px solid var(--neutral-600);
-  border-radius: 8px;
-  overflow: hidden;
-  z-index: 90;
-}
-.search-results-dropdown.active { display: block; }
-
-.search-item {
-  padding: 12px 16px;
-  font-size: 0.95rem;
-  color: var(--neutral-200);
-  cursor: pointer;
-  border-bottom: 1px solid var(--neutral-700);
-}
-.search-item:last-child { border-bottom: none; }
-.search-item:hover { background-color: var(--neutral-700); }
-
-/* ==========================================================================
-   4. Dashboard Layout Layout (Desktop First Base Grid)
-   ========================================================================== */
-.dashboard-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: 2.2fr 1fr;
-  gap: 24px;
-  align-items: start;
-}
-
-.panel-left {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-/* ==========================================================================
-   5. Weather Cards & Modules
-   ========================================================================== */
-/* Hero Status Card */
-.weather-hero-card {
-  background: linear-gradient(135deg, hsl(233, 67%, 45%), hsl(243, 96%, 9%));
-  border: 1px solid var(--neutral-600);
-  border-radius: 16px;
-  padding: 32px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.location-name {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.current-date {
-  color: var(--neutral-300);
-  font-size: 0.95rem;
-}
-
-.hero-weather-display {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.weather-art-icon {
-  font-size: 3.5rem;
-}
-
-.main-temperature {
-  font-family: var(--font-body);
-  font-size: clamp(4rem, 6vw, 6rem);
-  font-weight: 500;
-}
-
-/* Weather parameters grid (4 blocks) */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-.stat-card {
-  background-color: var(--neutral-800);
-  border: 1px solid var(--neutral-700);
-  border-radius: 12px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.stat-label {
-  color: var(--neutral-300);
-  font-size: 0.85rem;
-}
-
-.stat-value {
-  font-size: 1.6rem;
-  font-weight: 500;
-}
-
-/* 7-Day Horizontal Section */
-.section-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--neutral-0);
-  margin-bottom: 16px;
-}
-
-.daily-forecast-scroll {
-  display: flex;
-  gap: 12px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
-
-.day-card {
-  background-color: var(--neutral-800);
-  border: 1px solid var(--neutral-700);
-  border-radius: 12px;
-  padding: 16px 12px;
-  min-width: 90px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  text-align: center;
-}
-
-.day-name {
-  font-size: 0.9rem;
-  color: var(--neutral-200);
-}
-
-.day-icon {
-  font-size: 1.5rem;
-}
-
-.day-range {
-  font-size: 0.85rem;
-  display: flex;
-  gap: 8px;
-}
-
-.day-range .low {
-  color: var(--neutral-300);
-}
-
-/* ==========================================================================
-   6. Right Panel - Hourly Sidebar
-   ========================================================================== */
-.hourly-forecast-section {
-  background-color: var(--neutral-800);
-  border: 1px solid var(--neutral-700);
-  border-radius: 16px;
-  padding: 24px;
-}
-
-.hourly-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.hourly-header .section-title {
-  margin-bottom: 0;
-}
-
-.hourly-list {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.hourly-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 12px;
-  border-bottom: 1px solid var(--neutral-700);
-}
-
-.hourly-row:last-child {
-  border-bottom: none;
-}
-
-.hour-time {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.95rem;
-}
-
-.hour-temp {
-  font-weight: 500;
-}
-
-/* ==========================================================================
-   7. Responsive Adaptability Media Queries (Mobile View 375px variant)
-   ========================================================================== */
-@media (max-width: 900px) {
-  body {
-    padding: 16px;
-  }
-
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .weather-hero-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-    padding: 24px;
-  }
-
-  .hero-weather-display {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .daily-forecast-scroll {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    overflow-x: visible;
-  }
-  
-  /* Make the final stray grid cell span fully or clean up spacing */
-  .day-card {
-    min-width: unset;
-  }
-}
-
-@media (max-width: 480px) {
-  .search-area {
-    flex-direction: column;
-  }
-  
-  .btn-search {
-    padding: 14px;
-  }
-
-  .daily-forecast-scroll {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-    </style>
-  </head>
-  <body>
-
-  <header class="app-header">
+  <header class="header">
     <div class="logo">
-      <span class="logo-icon">☀️</span>
-      <span class="logo-text">Weather Now</span>
+      <img src="logo.svg" alt="Weather Now Logo" class="logo-img">
+      <span>Weather Now</span>
     </div>
     
-    <div class="units-dropdown-container">
-      <button class="btn-units">
-        <span>⚙️ Units</span>
-        <span class="arrow">▼</span>
+    <div class="units-menu">
+      <button class="units-btn">
+        <img src="settings-icon.svg" alt="" class="btn-icon">
+        Units <span>▼</span>
       </button>
       
-      <div class="units-dropdown-menu">
-        <div class="dropdown-section">Switch to Imperial</div>
-        <div class="dropdown-divider"></div>
-        <div class="dropdown-group">
+      <div class="dropdown hidden">
+        <div class="drop-title">Switch to Imperial</div>
+        <div class="divider"></div>
+        <div class="drop-group">
           <label>Temperature</label>
-          <div class="dropdown-item checked">Celsius (°C) <span class="checkmark">✓</span></div>
-          <div class="dropdown-item">Fahrenheit (°F)</div>
+          <div class="drop-item selected">Celsius (°C) <span>✓</span></div>
+          <div class="drop-item">Fahrenheit (°F)</div>
         </div>
-        <div class="dropdown-group">
+        <div class="drop-group">
           <label>Wind Speed</label>
-          <div class="dropdown-item checked">km/h <span class="checkmark">✓</span></div>
-          <div class="dropdown-item">mph</div>
+          <div class="drop-item selected">km/h <span>✓</span></div>
+          <div class="drop-item">mph</div>
         </div>
-        <div class="dropdown-group">
+        <div class="drop-group">
           <label>Precipitation</label>
-          <div class="dropdown-item checked">Millimeters (mm) <span class="checkmark">✓</span></div>
-          <div class="dropdown-item">Inches (in)</div>
+          <div class="drop-item selected">Millimeters (mm) <span>✓</span></div>
+          <div class="drop-item">Inches (in)</div>
         </div>
       </div>
     </div>
   </header>
 
-  <main class="dashboard-container">
-    
-    <h1 class="main-heading">How's the sky looking today?</h1>
+  <main class="container">
+    <h1 class="title">How's the sky looking today?</h1>
 
-    <div class="search-area">
-      <div class="search-input-wrapper">
-        <span class="search-icon">🔍</span>
-        <input type="text" placeholder="Search for a place..." aria-label="Search city">
+    <div class="search-box">
+      <div class="input-wrap">
+        <img src="search-icon.svg" alt="" class="search-img">
+        <input type="text" placeholder="Search for a place...">
         
-        <div class="search-results-dropdown">
+        <div class="search-drop hidden">
           <div class="search-item">City Name</div>
           <div class="search-item">City Name</div>
           <div class="search-item">City Name</div>
           <div class="search-item">City Name</div>
         </div>
       </div>
-      <button class="btn-search">Search</button>
+      <button class="search-btn">Search</button>
     </div>
 
-    <div class="dashboard-grid">
+    <div class="grid">
       
-      <div class="panel-left">
+      <div class="main-panel">
         
-        <section class="weather-hero-card">
-          <div class="hero-meta">
-            <h2 class="location-name">Berlin, Germany</h2>
-            <p class="current-date">Tuesday, Aug 5, 2025</p>
+        <section class="hero">
+          <div class="hero-info">
+            <h2>Berlin, Germany</h2>
+            <p>Tuesday, Aug 5, 2025</p>
           </div>
-          <div class="hero-weather-display">
-            <span class="weather-art-icon">☀️</span>
-            <span class="main-temperature">68°</span>
-          </div>
-        </section>
-
-        <section class="stats-grid">
-          <div class="stat-card">
-            <span class="stat-label">Feels Like</span>
-            <span class="stat-value">64°</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label">Humidity</span>
-            <span class="stat-value">46%</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label">Wind</span>
-            <span class="stat-value">9 mph</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-label">Precipitation</span>
-            <span class="stat-value">0 in</span>
+          <div class="hero-weather">
+            <img src="sun-big.png" alt="Sunny" class="weather-img">
+            <span class="temp">68°</span>
           </div>
         </section>
 
-        <section class="daily-forecast-section">
-          <h3 class="section-title">Daily forecast</h3>
-          <div class="daily-forecast-scroll">
+        <section class="stats">
+          <div class="card">
+            <span class="label">Feels Like</span>
+            <span class="value">64°</span>
+          </div>
+          <div class="card">
+            <span class="label">Humidity</span>
+            <span class="value">46%</span>
+          </div>
+          <div class="card">
+            <span class="label">Wind</span>
+            <span class="value">9 mph</span>
+          </div>
+          <div class="card">
+            <span class="label">Precipitation</span>
+            <span class="value">0 in</span>
+          </div>
+        </section>
+
+        <section class="forecast">
+          <h3 class="panel-title">Daily forecast</h3>
+          <div class="scroll-row">
             
             <div class="day-card">
-              <span class="day-name">Tue</span>
-              <span class="day-icon">🌧️</span>
-              <div class="day-range"><span class="hi">68°</span><span class="low">57°</span></div>
+              <span class="day">Tue</span>
+              <img src="rain-icon.png" alt="Rain" class="day-img">
+              <div class="range"><span class="hi">68°</span><span class="low">57°</span></div>
             </div>
             
             <div class="day-card">
-              <span class="day-name">Wed</span>
-              <span class="day-icon">🌧️</span>
-              <div class="day-range"><span class="hi">70°</span><span class="low">59°</span></div>
+              <span class="day">Wed</span>
+              <img src="rain-icon.png" alt="Rain" class="day-img">
+              <div class="range"><span class="hi">70°</span><span class="low">59°</span></div>
             </div>
             
             <div class="day-card">
-              <span class="day-name">Thu</span>
-              <span class="day-icon">☀️</span>
-              <div class="day-range"><span class="hi">75°</span><span class="low">57°</span></div>
+              <span class="day">Thu</span>
+              <img src="sun-icon.png" alt="Sunny" class="day-img">
+              <div class="range"><span class="hi">75°</span><span class="low">57°</span></div>
             </div>
             
             <div class="day-card">
-              <span class="day-name">Fri</span>
-              <span class="day-icon">🌤️</span>
-              <div class="day-range"><span class="hi">77°</span><span class="low">55°</span></div>
+              <span class="day">Fri</span>
+              <img src="cloud-sun-icon.png" alt="Partly Cloudy" class="day-img">
+              <div class="range"><span class="hi">77°</span><span class="low">55°</span></div>
             </div>
             
             <div class="day-card">
-              <span class="day-name">Sat</span>
-              <span class="day-icon">⛈️</span>
-              <div class="day-range"><span class="hi">70°</span><span class="low">59°</span></div>
+              <span class="day">Sat</span>
+              <img src="storm-icon.png" alt="Storm" class="day-img">
+              <div class="range"><span class="hi">70°</span><span class="low">59°</span></div>
             </div>
             
             <div class="day-card">
-              <span class="day-name">Sun</span>
-              <span class="day-icon">☁️</span>
-              <div class="day-range"><span class="hi">77°</span><span class="low">61°</span></div>
+              <span class="day">Sun</span>
+              <img src="cloud-icon.png" alt="Cloudy" class="day-img">
+              <div class="range"><span class="hi">77°</span><span class="low">61°</span></div>
             </div>
             
             <div class="day-card">
-              <span class="day-name">Mon</span>
-              <span class="day-icon">🌫️</span>
-              <div class="day-range"><span class="hi">75°</span><span class="low">59°</span></div>
+              <span class="day">Mon</span>
+              <img src="fog-icon.png" alt="Foggy" class="day-img">
+              <div class="range"><span class="hi">75°</span><span class="low">59°</span></div>
             </div>
 
           </div>
         </section>
       </div>
 
-      <aside class="panel-right hourly-forecast-section">
-        <div class="hourly-header">
-          <h3 class="section-title">Hourly forecast</h3>
-          <button class="btn-day-select">Tuesday ▼</button>
+      <aside class="sidebar">
+        <div class="side-header">
+          <h3 class="panel-title">Hourly forecast</h3>
+          <button class="day-btn">Tuesday <span>▼</span></button>
         </div>
         
-        <div class="hourly-list">
-          <div class="hourly-row">
-            <span class="hour-time"><span class="icon">☁️</span> 3 PM</span>
-            <span class="hour-temp">68°</span>
+        <div class="list">
+          <div class="row">
+            <span class="time"><img src="cloud-sm.png" alt="" class="row-img"> 3 PM</span>
+            <span class="row-temp">68°</span>
           </div>
-          <div class="hourly-row">
-            <span class="hour-time"><span class="icon">🌤️</span> 4 PM</span>
-            <span class="hour-temp">68°</span>
+          <div class="row">
+            <span class="time"><img src="cloud-sun-sm.png" alt="" class="row-img"> 4 PM</span>
+            <span class="row-temp">68°</span>
           </div>
-          <div class="hourly-row">
-            <span class="hour-time"><span class="icon">☀️</span> 5 PM</span>
-            <span class="hour-temp">68°</span>
+          <div class="row">
+            <span class="time"><img src="sun-sm.png" alt="" class="row-img"> 5 PM</span>
+            <span class="row-temp">68°</span>
           </div>
-          <div class="hourly-row">
-            <span class="hour-time"><span class="icon">☁️</span> 6 PM</span>
-            <span class="hour-temp">66°</span>
+          <div class="row">
+            <span class="time"><img src="cloud-sm.png" alt="" class="row-img"> 6 PM</span>
+            <span class="row-temp">66°</span>
           </div>
-          <div class="hourly-row">
-            <span class="hour-time"><span class="icon">🌧️</span> 7 PM</span>
-            <span class="hour-temp">66°</span>
+          <div class="row">
+            <span class="time"><img src="rain-sm.png" alt="" class="row-img"> 7 PM</span>
+            <span class="row-temp">66°</span>
           </div>
-          <div class="hourly-row">
-            <span class="hour-time"><span class="icon">🌫️</span> 8 PM</span>
-            <span class="hour-temp">64°</span>
+          <div class="row">
+            <span class="time"><img src="fog-sm.png" alt="" class="row-img"> 8 PM</span>
+            <span class="row-temp">64°</span>
           </div>
-          <div class="hourly-row">
-            <span class="hour-time"><span class="icon">🌧️</span> 9 PM</span>
-            <span class="hour-temp">63°</span>
+          <div class="row">
+            <span class="time"><img src="rain-sm.png" alt="" class="row-img"> 9 PM</span>
+            <span class="row-temp">63°</span>
           </div>
-          <div class="hourly-row">
-            <span class="hour-time"><span class="icon">☁️</span> 10 PM</span>
-            <span class="hour-temp">63°</span>
+          <div class="row">
+            <span class="time"><img src="cloud-sm.png" alt="" class="row-img"> 10 PM</span>
+            <span class="row-temp">63°</span>
           </div>
         </div>
       </aside>
@@ -823,56 +193,4 @@ body {
   </main>
 
 </body>
-  <!-- <body>
-    <div class="main">
-      <div class="nav">
-        <div>
-          <img src="images/logo.svg" class="logo" />
-        </div>
-        <div class="settings">
-          <img src="images/icon-units.svg" class="unit-svg" />
-          <p>Units</p>
-          <img src="images/icon-dropdown.svg" alt="" class="dropdown-svg" />
-        </div>
-      </div>
-      <div class="heading">
-        <h1>How's the sky looking today?</h1>
-      </div>
-      <div class="searchbar">
-        <div class="searchinput">
-          <i id="fah" class="fa fa-search" style="font-size: 30px"></i>
-          <input
-            type="search"
-            name="search"
-            class="search"
-            placeholder="Type name of a city..."
-          />
-        </div>
-        <button class="searchBtn">Search</button>
-      </div>
-      <div class="mainLayout">
-        <div class="leftLayout">
-          <div class="topLayout">
-            <div class="topMain"></div>
-            <div class="bottomMain">
-              <div class="cardTop"></div>
-              <div class="cardTop"></div>
-              <div class="cardTop"></div>
-              <div class="cardTop"></div>
-            </div>
-          </div>
-          <div class="bottomLayout">
-            <div class="cardBottom"></div>
-            <div class="cardBottom"></div>
-            <div class="cardBottom"></div>
-            <div class="cardBottom"></div>
-            <div class="cardBottom"></div>
-            <div class="cardBottom"></div>
-            <div class="cardBottom"></div>
-          </div>
-        </div>
-        <div class="rightLayout"></div>
-      </div>
-    </div>
-  </body> -->
 </html>
