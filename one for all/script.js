@@ -1,16 +1,25 @@
 const data = {
-  time: [
-    "2026-07-08",
-    "2026-07-09",
-    "2026-07-10",
-    "2026-07-11",
-    "2026-07-12",
-    "2026-07-13",
-    "2026-07-14"],
-  weather_code: [95, 51, 53, 51, 80, 51, 51],
-  temperature_2m_max: [37.5, 38.8, 39.8, 38.9, 38.8, 37.4, 37.1],
-  temperature_2m_min: [27.3, 29.3, 25.9, 26.6, 26.4, 26.2, 26.2],
+  daily: {
+    time: [
+      "2026-07-08",
+      "2026-07-09",
+      "2026-07-10",
+      "2026-07-11",
+      "2026-07-12",
+      "2026-07-13",
+      "2026-07-14",
+    ],
+    weather_code: [95, 51, 53, 51, 80, 51, 51],
+    temperature_2m_max: [37.5, 38.8, 39.8, 38.9, 38.8, 37.4, 37.1],
+    temperature_2m_min: [27.3, 29.3, 25.9, 26.6, 26.4, 26.2, 26.2],
+  },
 };
-data.time.forEach((element, index) => {
-  
+
+data.daily.time.forEach((el, index) => {
+  console.log(
+    data.daily.temperature_2m_min[index],
+    data.daily.temperature_2m_max[index],
+    data.daily.weather_code[index],
+    
+  );
 });
