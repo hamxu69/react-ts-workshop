@@ -1,77 +1,16 @@
-const business = {
-  businessName: "Nightingale Decor",
-  location: {
-    city: "Lahore",
-    country: "Pakistan",
-  },
-  specialty: "Desi Weddings",
-  founded: 2025,
+const data = {
+  time: [
+    "2026-07-08",
+    "2026-07-09",
+    "2026-07-10",
+    "2026-07-11",
+    "2026-07-12",
+    "2026-07-13",
+    "2026-07-14"],
+  weather_code: [95, 51, 53, 51, 80, 51, 51],
+  temperature_2m_max: [37.5, 38.8, 39.8, 38.9, 38.8, 37.4, 37.1],
+  temperature_2m_min: [27.3, 29.3, 25.9, 26.6, 26.4, 26.2, 26.2],
 };
-
-// Your code here:
-const {
-  businessName,
-  location: { city },
-  specialty,
-} = business;
-console.log(
-  `My business name is ${businessName} and my speciality is ${specialty} though we only operate in ${city}`,
-);
-
-const artists = [
-  "Chase Atlantic",
-  "The Weeknd",
-  "Arctic Monkeys",
-  "Neighborhood",
-  "Drake",
-];
-
-// Your code here:
-const [favorite, secondfavorite, ...others] = artists;
-console.log(
-  `my first favorite is ${favorite} and then second favorite would be ${secondfavorite} then rest ${others}`,
-);
-const user = {
-  username: "Hamza-Sama",
-  stack: "MERN",
-  isLockingIn: true,
-};
-
-// Your code here:
-const displayProfile = ({ username, stack }) => {
-  console.log(username, stack);
-};
-displayProfile(user);
-//  Boss level:
-const project = { title: "Portfolio", status: "In Progress", commits: 10 };
-const checkProject = ({ title, status, commits }) => {
-  console.log(
-    `The ${title} project is ${status}. You have ${commits} commits ${commits >= 10 ? "Good Job!" : "Keep going!"}`,
-  );
-};
-checkProject(project);
-// Next task:
-const myWork = [
-  { id: 1, type: "Mayon", status: "Completed" },
-  { id: 2, type: "Mehndi", status: "Pending" },
-  { id: 3, type: "Reception", status: "Completed" },
-];
-let projectTitles = myWork.map(({ type }) => {
-  return `Project Type: ${type}`;
+data.time.forEach((element, index) => {
+  
 });
-console.log(projectTitles);
-// to be continued
-// 3/12/2026
-const bookings = [
-  { id: 1, client: "Sarah", status: "Confirmed" },
-  { id: 2, client: "Zain", status: "Pending" },
-  { id: 3, client: "Ali", status: "Confirmed" },
-];
-
-const confirmedBookings = bookings.filter((el) => {
-  if(el.status === "Confirmed"){
-    return el.client
-  }
-  return
-});
-console.log(confirmedBookings);
