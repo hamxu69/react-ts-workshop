@@ -17,7 +17,7 @@ function creation(value) {
   let html = `
 <li class="expense-item">
   <span>${value}</span>
-  <button class="delete-btn">Delte</button>
+  <button class="delete-btn">Delete</button>
 </li>
 `;
   renderLi.innerHTML += html;
