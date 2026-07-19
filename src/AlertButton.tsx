@@ -3,7 +3,7 @@ function AlertButton() {
         alert('This button works!')
     }
     return (
-        <button onClick={AlertFunction}>Click me </button>
+        <button onClick={AlertFunction}>Click</button>
     )
 }
 export default AlertButton;
