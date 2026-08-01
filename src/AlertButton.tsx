@@ -1,6 +1,6 @@
 function AlertButton() {
     function AlertFunction() {
-        alert('This is button is working!')
+        alert('This iss button is working!')
     }
     return (
         <button onClick={AlertFunction}>Click Me</button>
